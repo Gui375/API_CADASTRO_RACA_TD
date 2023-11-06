@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using PSF.Dados.EntityFramework;
 using PSF.Dominio.Entities;
 
@@ -10,9 +11,7 @@ namespace PSF.WebApp.Controllers
 
         public IActionResult Index()
         {
-            var resultado = db.Raca
-                .ToList();
-
+            var resultado = db.Raca.ToListAsync();
             return View(resultado);
         }
 
@@ -30,11 +29,11 @@ namespace PSF.WebApp.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult Excluir(int Raca_id)
+        public IActionResult Excluir(int id)
         {
             var objeto = db
                 .Raca
-                .First(f => f.Id_Raca == Raca_id);
+                .First(f => f.Id == id);
 
             db.Raca.Remove(objeto);
             db.SaveChanges();

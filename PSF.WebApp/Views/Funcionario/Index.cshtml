@@ -17,10 +17,10 @@
         {
             <tr>
                 <td>
-                    @item.Id_Raca
+                    @item.Id
                 </td>
                 <td>
-                    @item.Nome_Raca
+                    @item.NomeRaca
                 </td>
                 <td>
                     @item.Tamanho
@@ -29,7 +29,7 @@
                     @item.Porte.ToString()
                 </td>
                 <td>
-                    <a class="btn btn-danger btn-xs" asp-action="Excluir" asp-controller="Funcionario" asp-route-funcionarioId="@item.Id_Raca">
+                    <a class="btn btn-danger btn-xs" asp-action="Excluir" asp-controller="Funcionario" asp-route-funcionarioId="@item.Id">
                         <i class="glyphicon glyphicon-trash"></i> 
                     </a>
                 </td>

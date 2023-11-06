@@ -14,16 +14,16 @@ namespace PSF.Dados.EntityFramework.Configuration
         public void Configure(EntityTypeBuilder<Raca> builder)
         {
             builder.ToTable("RACA");
-            builder.HasKey(f => f.Id_Raca);
+            builder.HasKey(f => f.Id);
 
             builder
-                .Property(f => f.Id_Raca)
+                .Property(f => f.Id)
                 .UseIdentityColumn()
                 .HasColumnName("ID_RACA")
                 .HasColumnType("int");
 
             builder
-                .Property(f => f.Nome_Raca)
+                .Property(f => f.NomeRaca)
                 .HasColumnName("NOME_RACA")
                 .HasColumnType("varchar(40)");
 

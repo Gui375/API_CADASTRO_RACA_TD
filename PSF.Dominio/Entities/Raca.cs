@@ -6,15 +6,10 @@ using System.Threading.Tasks;
 
 namespace PSF.Dominio.Entities
 {
-    public class Raca
+    public class Raca : Entity
     {
-        public Raca()
-        {
-            //DataNascimento = DateTime.Now;
-        }
-
-        public int Id_Raca { get; set; }
-        public string Nome_Raca { get; set; }
+  
+        public string NomeRaca { get; set; }
         public int Tamanho { get; set; }
         public char Porte { get; set; }
     }
