@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using PSF.Dados.EntityFramework;
 using PSF.Dominio.Entities;
 
@@ -11,7 +10,9 @@ namespace PSF.WebApp.Controllers
 
         public IActionResult Index()
         {
-            var resultado = db.Raca.ToListAsync();
+            var resultado = db.Raca
+                .ToList();
+
             return View(resultado);
         }
 
