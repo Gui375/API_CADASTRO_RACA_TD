@@ -11,7 +11,7 @@ namespace PSF.WebApp.Controllers
 
         public IActionResult Index()
         {
-            var resultado = db.Raca.ToListAsync();
+            var resultado = db.Raca.ToList();
             return View(resultado);
         }
 

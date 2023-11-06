@@ -19,8 +19,9 @@ namespace PSF.Dados.EntityFramework.Configuration
             builder
                 .Property(f => f.Id)
                 .UseIdentityColumn()
-                .HasColumnName("ID_RACA")
-                .HasColumnType("int");
+                .HasColumnName("ID")
+                .HasColumnType("int")
+                ;
 
             builder
                 .Property(f => f.NomeRaca)
@@ -30,7 +31,7 @@ namespace PSF.Dados.EntityFramework.Configuration
             builder
                 .Property(f => f.Tamanho)
                 .HasColumnName("TAMANHO")
-                .HasColumnType("int");
+                .HasColumnType("numeric(18,0)");
 
             builder
                 .Property(f => f.Porte)

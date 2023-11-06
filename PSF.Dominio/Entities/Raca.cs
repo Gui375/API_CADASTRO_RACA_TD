@@ -10,7 +10,7 @@ namespace PSF.Dominio.Entities
     {
   
         public string NomeRaca { get; set; }
-        public int Tamanho { get; set; }
+        public decimal Tamanho { get; set; }
         public char Porte { get; set; }
     }
 }
