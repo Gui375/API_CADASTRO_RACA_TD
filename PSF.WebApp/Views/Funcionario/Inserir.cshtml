@@ -1,0 +1,21 @@
+﻿@using PSF.Dominio.Entities;
+@model Raca
+
+<form asp-action="InserirConfirmar" asp-controller="Funcionario" method="POST">
+    <label class="control-label">Código do Funcionário: </label>
+    <input asp-for="Id_Raca" class="form-control" />
+
+    <label class="control-label">CPF:</label>
+    <input asp-for="Nome_Raca" class="form-control" />
+
+    <label class="control-label">Data de Nascimento:</label>
+    <input asp-for="Tamanho" class="form-control" />
+
+    <label class="control-label">Nome:</label>
+    <input asp-for="Porte" class="form-control" />
+
+    <hr />
+    <button type="submit" class="btn btn-success">
+        SALVAR
+    </button>
+</form>
