@@ -1,12 +1,39 @@
-﻿@{
-    ViewData["Title"] = "Raca";
-}
+﻿@using PSF.Dominio.Entities;
 
-<div class="text-center">
-    <h1 class="display-4">Raca</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">Teste</a>.</p>
-</div>
+@model IEnumerable<Raca>
 
-<h1>
-    OLÁ
-</h1>
+<table class="table table-striped table-sm">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome Raça</th>
+            <th>Tamanho Raça</th>
+            <th>Porte</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.NomeRaca
+                </td>
+                <td>
+                    @item.Tamanho
+                </td>
+                <td>
+                    @item.Porte.ToString()
+                </td>
+                <td>
+                    <a class="btn btn-danger btn-xs" asp-action="Excluir" asp-controller="Raca" asp-route-funcionarioId="@item.Id">
+                        <i class="glyphicon glyphicon-trash"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
