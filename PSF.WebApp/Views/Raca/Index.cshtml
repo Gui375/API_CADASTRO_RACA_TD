@@ -33,11 +33,17 @@
                     @item.Porte.ToString()
                 </td>
                 <td>
-                    <a class="btn btn-danger btn-xs" asp-action="Excluir" asp-controller="Raca" asp-route-funcionarioId="@item.Id">
+                    <a class="btn btn-danger btn-xs" asp-action="Excluir" asp-controller="Raca" asp-route-id="@item.Id">
                         <i class="glyphicon glyphicon-trash"></i>
                     </a>
+                    
                 </td>
-            </tr>
+            </tr>       
         }
+        <a class="btn btn-xs" asp-controller="Raca" asp-action="Inserir">
+            <i class="glyphicon glyphicon-trash"></i>
+            Novo Cadastro
+        </a>
+
     </tbody>
 </table>
