@@ -13,6 +13,7 @@ namespace PSF.Dados.EntityFramework
     public class Contexto : DbContext
     {
         public DbSet<Raca> Raca { get; set; }
+        public DbSet<Usuario> usuarios { get; set; }
 
         public Contexto() : base()
         {
@@ -20,7 +21,7 @@ namespace PSF.Dados.EntityFramework
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data source = BANDEIRA,1434; 
+            optionsBuilder.UseSqlServer(@"Data source = 201.62.57.93,1434; 
                                     Database = BD044748; 
                                     User ID = RA044748; 
                                     Password = 044748;

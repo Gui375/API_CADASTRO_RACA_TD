@@ -1,0 +1,45 @@
+﻿@using PSF.Dominio.Entities;
+
+@{
+    ViewData["Title"] = "Usuario";
+}
+
+@model List<Usuario>
+
+<table class="table table-striped table-sm">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Ativo</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.Nome
+                </td>
+                <td>
+                    @item.ATIVO
+                </td>
+               
+                <td>
+                    <a class="btn btn-danger btn-xs" asp-action="Excluir" asp-controller="Usuario" asp-route-id="@item.Id">
+                        <i class="glyphicon glyphicon-trash"></i>
+                    </a>
+
+                </td>
+            </tr>
+        }
+        <a class="btn btn-xs" asp-controller="Usuario" asp-action="Inserir">
+            <i class="glyphicon glyphicon-trash"></i>
+            Novo Cadastro
+        </a>
+
+    </tbody>
+</table>
