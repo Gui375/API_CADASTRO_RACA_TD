@@ -1,0 +1,19 @@
+﻿@using PSF.Dominio.Entities;
+@model Porte
+
+<form asp-action="InserirConfirmar" asp-controller="Porte" method="POST">
+
+    <label class="control-label">Tamanho em centimetro:</label>
+    <input asp-for="Tamanho" class="form-control" />
+
+    <select asp-for="Sigla" class="form-control">
+        <option value="P">Pequeno</option>
+        <option value="M">Médio</option>
+        <option value="G">Grande</option>      
+    </select>
+
+    <hr />
+    <button type="submit" class="btn btn-success">
+        SALVAR
+    </button>
+</form>

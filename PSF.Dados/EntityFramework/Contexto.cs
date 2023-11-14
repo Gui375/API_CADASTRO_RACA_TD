@@ -14,6 +14,8 @@ namespace PSF.Dados.EntityFramework
     {
         public DbSet<Raca> Raca { get; set; }
         public DbSet<Usuario> usuarios { get; set; }
+        public DbSet<Porte> Portes { get; set; }
+
 
         public Contexto() : base()
         {
@@ -31,7 +33,10 @@ namespace PSF.Dados.EntityFramework
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new RacaConfiguration());
+            modelBuilder.ApplyConfiguration(new PorteConfiguration());
+            modelBuilder.ApplyConfiguration(new UsuarioConfiguration());
         }
 
+       
     }
 }
