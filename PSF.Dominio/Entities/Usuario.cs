@@ -10,6 +10,7 @@ namespace PSF.Dominio.Entities
     public class Usuario : Entity
     {
         public string Nome{ get; set; }
+        public List<Animal> Animais{ get; set; }
         public char ATIVO { get; set; }
 
     }

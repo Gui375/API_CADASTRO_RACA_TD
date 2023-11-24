@@ -34,6 +34,10 @@ namespace PSF.Dados.EntityFramework.Configuration
                .HasColumnName("ATIVO")
                .HasColumnType("char")
                ;
+            builder.HasMany(u => u.Animais)
+               .WithOne(a => a.Usuario)
+               .HasForeignKey(a => a.UsuarioId)
+               .OnDelete(DeleteBehavior.Restrict);
 
         }
     }
