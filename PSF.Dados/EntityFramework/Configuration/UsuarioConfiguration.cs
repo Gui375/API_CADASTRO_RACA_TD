@@ -14,7 +14,7 @@ namespace PSF.Dados.EntityFramework.Configuration
     {
         public void Configure(EntityTypeBuilder<Usuario> builder)
         {
-            builder.ToTable("USUARIOS");
+            builder.ToTable("USUARIO");
             builder.HasKey(x => x.Id);
 
             builder

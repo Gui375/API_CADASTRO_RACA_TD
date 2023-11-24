@@ -17,5 +17,6 @@ namespace PSF.Dominio.Entities
         public DateTime DataNascimento { get; set; }
         public int UsuarioId { get; set; }
         public Usuario Usuario { get; set; }
+        public List<Curtida> Curtida { get; set; }
     }
 }

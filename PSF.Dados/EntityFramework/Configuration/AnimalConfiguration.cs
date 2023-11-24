@@ -59,6 +59,11 @@ namespace PSF.Dados.EntityFramework.Configuration
                    .WithMany()
                    .HasForeignKey(a => a.UsuarioId)
                    .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasMany(e => e.Curtida)
+                    .WithOne()
+                    .HasForeignKey(e => e.AnimalId)
+                    .HasPrincipalKey(e => e.Id);
         }
     }
 }

@@ -14,6 +14,7 @@
     <ProjectReference Include="..\PSF.CrossCutting\PSF.CrossCutting.csproj" />
     <ProjectReference Include="..\PSF.Dados\PSF.Dados.csproj" />
     <ProjectReference Include="..\PSF.Dominio\PSF.Dominio.csproj" />
+    <ProjectReference Include="..\PSF.Servico\PSF.Servico.csproj" />
   </ItemGroup>
 
 </Project>

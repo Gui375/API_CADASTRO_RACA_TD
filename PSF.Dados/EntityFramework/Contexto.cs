@@ -12,15 +12,17 @@ namespace PSF.Dados.EntityFramework
 {
     public class Contexto : DbContext
     {
+        public Contexto(DbContextOptions<Contexto> options) : base(options)
+        {
+
+        }
         public DbSet<Raca> Raca { get; set; }
-        public DbSet<Usuario> usuarios { get; set; }
+        public DbSet<Usuario> Usuario { get; set; }
         public DbSet<Porte> Portes { get; set; }
         public DbSet<Animal> Animal { get; set; }
+        public DbSet<Curtida> Curtida { get; set; }
 
 
-        public Contexto() : base()
-        {
-        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -37,6 +39,7 @@ namespace PSF.Dados.EntityFramework
             modelBuilder.ApplyConfiguration(new PorteConfiguration());
             modelBuilder.ApplyConfiguration(new UsuarioConfiguration());
             modelBuilder.ApplyConfiguration(new AnimalConfiguration());
+            modelBuilder.ApplyConfiguration(new CurtidaConfiguration());
         }
 
        

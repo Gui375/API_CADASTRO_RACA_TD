@@ -2,12 +2,19 @@
 using Microsoft.EntityFrameworkCore;
 using PSF.Dados.EntityFramework;
 using PSF.Dominio.Entities;
+using PSF.Servico.Interface;
 
 namespace PSF.WebApp.Controllers
 {
-    public class AnimalController : Controller
+    public class AnimalController : Controller, ICurtidaService
     {
         private Contexto db = new Contexto();
+        private readonly ICurtidaService _curtidaService;
+
+        public AnimalController(ICurtidaService curtidaService)
+        {
+            _curtidaService = curtidaService;
+        }
 
         [HttpGet]
         public ActionResult<List<Animal>> Buscar()
@@ -42,6 +49,17 @@ namespace PSF.WebApp.Controllers
             db.Animal.Add(ent);
             db.SaveChanges();
             return Ok(ent);
+        }
+        
+        [HttpPost]
+        public async Task<ActionResult<bool>> Interagir(Curtida curtida)
+        {
+
+            if (!ModelState.IsValid)
+                return BadRequest(BadRequest());
+
+            var result = await _curtidaService.Interacao(curtida);
+            return Ok(result);
         }
 
         [HttpDelete]
