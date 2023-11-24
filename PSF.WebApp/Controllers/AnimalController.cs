@@ -52,6 +52,7 @@ namespace PSF.WebApp.Controllers
         }
         
         [HttpPost]
+        [Route("Curtida")]
         public async Task<ActionResult<bool>> Interagir(Curtida curtida)
         {
 
