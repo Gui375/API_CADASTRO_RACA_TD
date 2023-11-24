@@ -6,48 +6,51 @@ using PSF.Servico.Interface;
 
 namespace PSF.WebApp.Controllers
 {
-    public class AnimalController : Controller, ICurtidaService
+    public class AnimalController : Controller
     {
-        private Contexto db = new Contexto();
         private readonly ICurtidaService _curtidaService;
+        private readonly IAnimalService _animalService;
 
-        public AnimalController(ICurtidaService curtidaService)
+        public AnimalController(ICurtidaService curtidaService, IAnimalService animalService)
         {
             _curtidaService = curtidaService;
+            _animalService = animalService;
         }
 
         [HttpGet]
-        public ActionResult<List<Animal>> Buscar()
+        public async Task<ActionResult<List<Animal>>> Buscar()
         {
-            var objeto = db
-                .Animal
-                .ToList();
+            var objeto = await _animalService.Listar();
 
             return Ok(objeto);
         }
 
         [HttpPost]
-        public ActionResult<Animal> Adicionar(Animal ent)
+        public async Task<ActionResult<Animal>> Adicionar(Animal ent)
         {
-            if(ent == null)
+            if(ent == null || !ModelState.IsValid)
                 return BadRequest(BadRequest());
-            db.Animal.Add(ent);
-            db.SaveChanges();
+
+            var result = await _animalService.Adicionar(ent);
+
             return Ok(ent);
         }
         
         [HttpPut]
-        public ActionResult<Animal> Editar(Animal ent)
+        public async Task<ActionResult<Animal>> Editar(Animal ent)
         {
-            var objeto = db
-                .Animal
-                .First(f => f.Id == ent.Id);
-            if (objeto == null || ent == null)
-                return BadRequest(BadRequest());
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+            var objeto = await _animalService.BuscarPorId(ent.Id);
+            if(objeto == null)
+            {
+                return BadRequest();
+            }
+            await _animalService.Editar(objeto);
 
-            objeto = ent;
-            db.Animal.Add(ent);
-            db.SaveChanges();
+
             return Ok(ent);
         }
         
@@ -64,14 +67,13 @@ namespace PSF.WebApp.Controllers
         }
 
         [HttpDelete]
-        public bool Excluir(int id)
+        public async Task<bool> Excluir(int id)
         {
-            var objeto = db
-                .Portes
-                .First(f => f.Id == id);
+            var result = await _animalService.BuscarPorId(id);
 
-            db.Portes.Remove(objeto);
-            db.SaveChanges();
+            result.Ativo = false;
+
+            await _animalService.Editar(result);
 
             return true;
         }
