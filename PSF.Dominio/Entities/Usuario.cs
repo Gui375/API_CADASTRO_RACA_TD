@@ -13,7 +13,7 @@ namespace PSF.Dominio.Entities
         public string Senha { get; set; }
         public List<Animal> Animais { get; set; }
         public List<Match> Matchs { get; set; }
-        public char Ativo { get; set; }
+        public bool Ativo { get; set; }
 
     }
 }

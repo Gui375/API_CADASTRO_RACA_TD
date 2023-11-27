@@ -1,4 +1,5 @@
-﻿using PSF.Dados.EntityFramework;
+﻿using Microsoft.EntityFrameworkCore;
+using PSF.Dados.EntityFramework;
 using PSF.Dados.Interface;
 using PSF.Dominio.Entities;
 using System;
@@ -15,7 +16,15 @@ namespace PSF.Dados.Repositorio
         {
 
         }
+        public async Task<Raca> BuscarPorId(int id)
+        {
+            return await Db.Raca.Where(a => a.Id == id).AsNoTracking().FirstOrDefaultAsync();
+        }
 
-      
+        public async Task<List<Raca>> Listar()
+        {
+            return await Db.Raca.AsNoTracking().ToListAsync();
+        }
+
     }
 }

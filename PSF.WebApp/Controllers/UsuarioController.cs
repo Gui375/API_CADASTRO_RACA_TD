@@ -1,17 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PSF.Dados.EntityFramework;
 using PSF.Dominio.Entities;
+using PSF.Servico.Interface;
 
 namespace PSF.WebApp.Controllers
 {
+    [Route("[controller]")]
+    [ApiController]
     public class UsuarioController : Controller
     {
-       
-            private Contexto db = new Contexto();
+            private readonly IUsuarioService _usuarioService;
+            public UsuarioController(IUsuarioService usuarioService)
+            {
+                _usuarioService = usuarioService;
+            }
 
             public IActionResult Index()
             {
-                var resultado = db.usuarios.ToList();
+                var resultado = _usuarioService.Listar();
                 return View(resultado);
             }
 
@@ -24,22 +30,11 @@ namespace PSF.WebApp.Controllers
             [HttpPost]
             public IActionResult InserirConfirmar(Usuario ent)
             {
-                db.usuarios.Add(ent);
-                db.SaveChanges();
+                _usuarioService.Adicionar(ent);
                 return RedirectToAction("Index");
             }
 
-            public IActionResult Excluir(int id)
-            {
-                var objeto = db
-                    .usuarios
-                    .First(f => f.Id == id);
-
-                db.usuarios.Remove(objeto);
-                db.SaveChanges();
-
-                return RedirectToAction("Index");
-            }
+          
 
         
     }

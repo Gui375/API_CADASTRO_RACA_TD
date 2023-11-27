@@ -6,6 +6,8 @@ using PSF.Servico.Interface;
 
 namespace PSF.WebApp.Controllers
 {
+    [Route("[controller]")]
+    [ApiController]
     public class RacaController : Controller
     {
         private readonly IRacaService _racaService;
@@ -34,15 +36,15 @@ namespace PSF.WebApp.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult Excluir(int id)
-        {
-            var objeto = _racaService.BuscarPorId(id);
-            objeto.Ativo = false;
+        //public IActionResult Excluir(int id)
+        //{
+        //    var objeto = _racaService.BuscarPorId(id);
+        //    objeto.Ativo = false;
 
-            _racaService.Editar(objeto);
+        //    _racaService.Editar(objeto);
 
-            return RedirectToAction("Index");
-        }
+        //    return RedirectToAction("Index");
+        //}
 
     }
 

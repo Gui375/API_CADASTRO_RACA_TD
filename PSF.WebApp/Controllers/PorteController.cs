@@ -6,6 +6,8 @@ using PSF.Servico.Interface;
 
 namespace PSF.WebApp.Controllers
 {
+    [Route("[controller]")]
+    [ApiController]
     public class PorteController : Controller
     {
         private readonly IPorteService _porteService;
