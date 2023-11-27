@@ -11,5 +11,6 @@ namespace PSF.Dominio.Entities
         public string Conteudo { get; set; }
         public int MatchId { get; set; }
         public int UsuarioId { get; set; }
+        public DateTime DataHora { get; set; }
     }
 }

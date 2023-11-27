@@ -21,6 +21,8 @@ namespace PSF.Dados.EntityFramework
         public DbSet<Porte> Portes { get; set; }
         public DbSet<Animal> Animal { get; set; }
         public DbSet<Curtida> Curtida { get; set; }
+        public DbSet<Mensagem> Mensagem { get; set; }
+
 
 
 
@@ -40,8 +42,10 @@ namespace PSF.Dados.EntityFramework
             modelBuilder.ApplyConfiguration(new UsuarioConfiguration());
             modelBuilder.ApplyConfiguration(new AnimalConfiguration());
             modelBuilder.ApplyConfiguration(new CurtidaConfiguration());
+            modelBuilder.ApplyConfiguration(new MensagemConfiguration());
+
         }
 
-       
+
     }
 }
