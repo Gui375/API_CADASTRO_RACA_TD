@@ -20,37 +20,37 @@ namespace PSF.WebApp.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Animal>>> Buscar()
+        public ActionResult<List<Animal>> Buscar()
         {
-            var objeto = await _animalService.Listar();
+            var objeto = _animalService.Listar();
 
             return Ok(objeto);
         }
 
         [HttpPost]
-        public async Task<ActionResult<Animal>> Adicionar(Animal ent)
+        public ActionResult<Animal> Adicionar(Animal ent)
         {
             if(ent == null || !ModelState.IsValid)
                 return BadRequest(BadRequest());
 
-            var result = await _animalService.Adicionar(ent);
+            var result = _animalService.Adicionar(ent);
 
             return Ok(ent);
         }
         
         [HttpPut]
-        public async Task<ActionResult<Animal>> Editar(Animal ent)
+        public ActionResult<Animal> Editar(Animal ent)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
-            var objeto = await _animalService.BuscarPorId(ent.Id);
+            var objeto = _animalService.BuscarPorId(ent.Id);
             if(objeto == null)
             {
                 return BadRequest();
             }
-            await _animalService.Editar(objeto);
+            _animalService.Editar(objeto);
 
 
             return Ok(ent);
@@ -58,24 +58,24 @@ namespace PSF.WebApp.Controllers
         
         [HttpPost]
         [Route("Curtida")]
-        public async Task<ActionResult<bool>> Interagir(Curtida curtida)
+        public ActionResult<bool> Interagir(Curtida curtida)
         {
 
             if (!ModelState.IsValid)
                 return BadRequest(BadRequest());
 
-            var result = await _curtidaService.Interacao(curtida);
+            var result = _curtidaService.Interacao(curtida);
             return Ok(result);
         }
 
         [HttpDelete]
-        public async Task<bool> Excluir(int id)
+        public bool Excluir(int id)
         {
-            var result = await _animalService.BuscarPorId(id);
+            var result = _animalService.BuscarPorId(id);
 
             result.Ativo = false;
 
-            await _animalService.Editar(result);
+            _animalService.Editar(result);
 
             return true;
         }

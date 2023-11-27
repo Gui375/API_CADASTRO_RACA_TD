@@ -17,14 +17,14 @@ namespace PSF.Dados.Repositorio
 
         }
 
-        public async Task<Animal> BuscarPorId(int id)
+        public Animal BuscarPorId(int id)
         {
-            return await Db.Animal.Where(a => a.Id == id).FirstOrDefaultAsync();
+            return  Db.Animal.Where(a => a.Id == id).FirstOrDefault();
         }
 
-        public async Task<List<Animal>> Listar()
+        public  List<Animal> Listar()
         {
-            return await Db.Animal.ToListAsync();
+            return  Db.Animal.ToList();
         }
     }
 }

@@ -9,7 +9,7 @@ namespace PSF.Dados.Interface
 {
     public interface IAnimalRepositorio : IRepositorio<Animal>
     {
-        public Task<List<Animal>> Listar();
-        public Task<Animal> BuscarPorId(int id);
+        public List<Animal> Listar();
+        public Animal BuscarPorId(int id);
     }
 }

@@ -17,24 +17,24 @@ namespace PSF.Servico.Services
             _animalRepositorio = animalRepositorio;
         }
 
-        public async Task<bool> Adicionar(Animal ent)
+        public bool Adicionar(Animal ent)
         {
-            return await _animalRepositorio.Adicionar(ent);
+            return _animalRepositorio.Adicionar(ent);
         }
 
-        public async Task<Animal> BuscarPorId(int id)
+        public Animal BuscarPorId(int id)
         {
-            return await _animalRepositorio.BuscarPorId(id);
+            return _animalRepositorio.BuscarPorId(id);
         }
 
-        public async Task<bool> Editar(Animal ent)
+        public bool Editar(Animal ent)
         {
-            return await _animalRepositorio.Atualizar(ent);
+            return _animalRepositorio.Atualizar(ent);
         }
 
-        public async Task<List<Animal>> Listar()
+        public  List<Animal> Listar()
         {
-            return await _animalRepositorio.Listar();
+            return _animalRepositorio.Listar();
         }
     }
 }

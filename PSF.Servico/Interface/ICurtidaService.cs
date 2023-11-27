@@ -9,6 +9,6 @@ namespace PSF.Servico.Interface
 {
     public interface ICurtidaService : IDisposable
     {
-        Task<bool> Interacao(Curtida ent);
+        bool Interacao(Curtida ent);
     }
 }

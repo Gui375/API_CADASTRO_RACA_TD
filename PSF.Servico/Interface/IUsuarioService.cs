@@ -9,9 +9,9 @@ namespace PSF.Servico.Interface
 {
     public interface IUsuarioService : IDisposable
     {
-        public Task<List<Usuario>> Listar();
-        public Task<Usuario> BuscarPorId(int id);
-        public Task<bool> Adicionar(Usuario ent);
-        public Task<bool> Editar(Usuario ent);
+        public List<Usuario> Listar();
+        public Usuario BuscarPorId(int id);
+        public bool Adicionar(Usuario ent);
+        public bool Editar(Usuario ent);
     }
 }

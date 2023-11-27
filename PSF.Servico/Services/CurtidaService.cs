@@ -17,9 +17,9 @@ namespace PSF.Servico.Services
             _curtidaRepositorio = curtidaRepositorio;
         }
 
-        public async Task<bool> Interacao(Curtida ent)
+        public bool Interacao(Curtida ent)
         {
-            var interagir = await _curtidaRepositorio.Adicionar(ent);
+            var interagir = _curtidaRepositorio.Adicionar(ent);
             
             return interagir;
         }

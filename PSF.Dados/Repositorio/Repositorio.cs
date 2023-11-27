@@ -24,16 +24,16 @@ namespace PSF.Dados.Repositorio
             DbSet = db.Set<TEntity>();
         }
 
-        public async Task<IEnumerable<TEntity>> Buscar(Expression<Func<TEntity, bool>> predicate)
+        public IEnumerable<TEntity> Buscar(Expression<Func<TEntity, bool>> predicate)
         {
-            return await DbSet.AsNoTracking().Where(predicate).ToListAsync();
+            return DbSet.AsNoTracking().Where(predicate).ToList();
         }
 
-        public virtual async Task<TEntity> ObterPorId(int id)
+        public virtual TEntity ObterPorId(int id)
         {
             try
             {
-                return await DbSet.FindAsync(id);
+                return DbSet.Find(id);
             }
             catch (Exception ex)
             {
@@ -41,18 +41,18 @@ namespace PSF.Dados.Repositorio
             }
         }
 
-        public virtual async Task<List<TEntity>> ObterTodos()
+        public virtual List<TEntity> ObterTodos()
         {
-            return await DbSet.ToListAsync();
+            return DbSet.ToList();
         }
 
 
-        public virtual async Task<bool> Adicionar(TEntity entity)
+        public virtual bool Adicionar(TEntity entity)
         {
             try
             {
                 DbSet.Add(entity);
-                await Db.SaveChangesAsync();
+                Db.SaveChanges();
                 return true;
 
             }
@@ -62,12 +62,12 @@ namespace PSF.Dados.Repositorio
             }
         }
 
-        public virtual async Task<bool> Atualizar(TEntity entity)
+        public virtual bool Atualizar(TEntity entity)
         {
             try
             {
                 DbSet.Update(entity);
-                await Db.SaveChangesAsync();
+                Db.SaveChanges();
                 return true;
             }
             catch (Exception ex)
@@ -77,12 +77,12 @@ namespace PSF.Dados.Repositorio
 
         }
 
-        public virtual async Task<bool> Remover(int id)
+        public virtual bool Remover(int id)
         {
             try
             {
                 DbSet.Remove(new TEntity { Id = id });
-                await Db.SaveChangesAsync();
+                Db.SaveChanges();
                 return true;
             }
             catch (Exception ex)
@@ -92,13 +92,13 @@ namespace PSF.Dados.Repositorio
 
         }
 
-        public virtual async Task<bool> ExclusaoLogica(TEntity entity)
+        public virtual bool ExclusaoLogica(TEntity entity)
         {
             entity.Ativo = false;
             try
             {
                 DbSet.Update(entity);
-                await SaveChanges();
+                SaveChanges();
                 return true;
             }
             catch (Exception)
