@@ -30,7 +30,7 @@ namespace PSF.Dados.EntityFramework.Configuration
                 .HasColumnType("varchar(255)")
                 ;
             builder
-               .Property(x => x.ATIVO)
+               .Property(x => x.Ativo)
                .HasColumnName("ATIVO")
                .HasColumnType("char")
                ;

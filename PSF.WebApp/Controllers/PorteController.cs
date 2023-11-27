@@ -2,16 +2,22 @@
 using Microsoft.EntityFrameworkCore;
 using PSF.Dados.EntityFramework;
 using PSF.Dominio.Entities;
+using PSF.Servico.Interface;
 
 namespace PSF.WebApp.Controllers
 {
     public class PorteController : Controller
     {
-        private Contexto db = new Contexto();
+        private readonly IPorteService _porteService;
+
+        public PorteController(IPorteService porteService)
+        {
+            _porteService = porteService;
+        }
 
         public IActionResult Index()
         {
-            var resultado = db.Portes.ToList();
+            var resultado = _porteService.Listar();
             return View(resultado);
         }
 
@@ -24,19 +30,16 @@ namespace PSF.WebApp.Controllers
         [HttpPost]
         public IActionResult InserirConfirmar(Porte ent)
         {
-            db.Portes.Add(ent);
-            db.SaveChanges();
+            _porteService.Adicionar(ent);
             return RedirectToAction("Index");
         }
 
         public IActionResult Excluir(int id)
         {
-            var objeto = db
-                .Portes
-                .First(f => f.Id == id);
+            var objeto = _porteService.BuscarPorId(id);
+            objeto.Ativo = false;
 
-            db.Portes.Remove(objeto);
-            db.SaveChanges();
+            _porteService.Editar(objeto);
 
             return RedirectToAction("Index");
         }

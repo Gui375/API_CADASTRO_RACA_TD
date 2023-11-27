@@ -2,16 +2,22 @@
 using Microsoft.EntityFrameworkCore;
 using PSF.Dados.EntityFramework;
 using PSF.Dominio.Entities;
+using PSF.Servico.Interface;
 
 namespace PSF.WebApp.Controllers
 {
     public class RacaController : Controller
     {
-        private Contexto db = new Contexto();
+        private readonly IRacaService _racaService;
+
+        public RacaController(IRacaService racaService)
+        {
+            _racaService = racaService;
+        }
 
         public IActionResult Index()
         {
-            var resultado = db.Raca.ToList();
+            var resultado = _racaService.Listar();
             return View(resultado);
         }
 
@@ -24,19 +30,16 @@ namespace PSF.WebApp.Controllers
         [HttpPost]
         public IActionResult InserirConfirmar(Raca ent)
         {
-            db.Raca.Add(ent);
-            db.SaveChanges();
+            _racaService.Adicionar(ent);
             return RedirectToAction("Index");
         }
 
         public IActionResult Excluir(int id)
         {
-            var objeto = db
-                .Raca
-                .First(f => f.Id == id);
+            var objeto = _racaService.BuscarPorId(id);
+            objeto.Ativo = false;
 
-            db.Raca.Remove(objeto);
-            db.SaveChanges();
+            _racaService.Editar(objeto);
 
             return RedirectToAction("Index");
         }
