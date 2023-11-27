@@ -9,10 +9,10 @@ namespace PSF.Dados.Interface
 {
     public interface IRepositorio<TEntity> : IDisposable where TEntity : Entity
     {
-        Task<bool> Adicionar(TEntity entity);
-        Task<bool> Atualizar(TEntity entity);
-        Task<bool> ExclusaoLogica(TEntity entity);
-        Task<bool> Remover(int id);
+        bool Adicionar(TEntity entity);
+        bool Atualizar(TEntity entity);
+        bool ExclusaoLogica(TEntity entity);
+        bool Remover(int id);
 
     }
 }

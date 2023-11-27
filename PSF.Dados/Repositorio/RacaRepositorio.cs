@@ -16,14 +16,14 @@ namespace PSF.Dados.Repositorio
         {
 
         }
-        public async Task<Raca> BuscarPorId(int id)
+        public Raca BuscarPorId(int id)
         {
-            return await Db.Raca.Where(a => a.Id == id).AsNoTracking().FirstOrDefaultAsync();
+            return  Db.Raca.Where(a => a.Id == id).AsNoTracking().FirstOrDefault();
         }
 
-        public async Task<List<Raca>> Listar()
+        public List<Raca> Listar()
         {
-            return await Db.Raca.AsNoTracking().ToListAsync();
+            return Db.Raca.AsNoTracking().ToList();
         }
 
     }

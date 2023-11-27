@@ -9,7 +9,7 @@ namespace PSF.Dados.Interface
 {
     public interface IUsuarioRepositorio : IRepositorio<Usuario>
     {
-        public Task<List<Usuario>> Listar();
-        public Task<Usuario> BuscarPorId(int id);
+        public List<Usuario> Listar();
+        public Usuario BuscarPorId(int id);
     }
 }

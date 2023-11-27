@@ -9,9 +9,9 @@ namespace PSF.Servico.Interface
 {
     public interface IAnimalService
     {
-        public Task<List<Animal>> Listar();
-        public Task<Animal> BuscarPorId(int id);
-        public Task<bool> Adicionar(Animal ent);
-        public Task<bool> Editar(Animal ent);
+        public List<Animal> Listar();
+        public Animal BuscarPorId(int id);
+        public bool Adicionar(Animal ent);
+        public bool Editar(Animal ent);
     }
 }

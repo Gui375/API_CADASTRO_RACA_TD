@@ -16,14 +16,14 @@ namespace PSF.Servico.Services
         {
             _usuarioRepositorio = usuarioRepositorio;
         }
-        public Task<bool> Adicionar(Usuario ent)
+        public bool Adicionar(Usuario ent)
         {
             return _usuarioRepositorio.Adicionar(ent);
         }
 
-        public async Task<Usuario> BuscarPorId(int id)
+        public Usuario BuscarPorId(int id)
         {
-            return await _usuarioRepositorio.BuscarPorId(id);
+            return _usuarioRepositorio.BuscarPorId(id);
         }
 
         public void Dispose()
@@ -31,14 +31,14 @@ namespace PSF.Servico.Services
             _usuarioRepositorio.Dispose();
         }
 
-        public async Task<bool> Editar(Usuario ent)
+        public bool Editar(Usuario ent)
         {
-            return await _usuarioRepositorio.Atualizar(ent);
+            return _usuarioRepositorio.Atualizar(ent);
         }
 
-        public async Task<List<Usuario>> Listar()
+        public List<Usuario> Listar()
         {
-            return await _usuarioRepositorio.Listar();
+            return _usuarioRepositorio.Listar();
         }
     }
 }

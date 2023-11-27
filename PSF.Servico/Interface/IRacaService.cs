@@ -9,9 +9,9 @@ namespace PSF.Servico.Interface
 {
     public interface IRacaService : IDisposable
     {
-        public Task<List<Raca>> Listar();
-        public Task<Raca> BuscarPorId(int id);
-        public Task<bool> Adicionar(Raca ent);
-        public Task<bool> Editar(Raca ent);
+        public List<Raca> Listar();
+        public Raca BuscarPorId(int id);
+        public bool Adicionar(Raca ent);
+        public bool Editar(Raca ent);
     }
 }

@@ -18,12 +18,12 @@ namespace PSF.Servico.Services
             _racaRepositorio = racaRepositorio;
         }
 
-        public async Task<bool> Adicionar(Raca ent)
+        public bool Adicionar(Raca ent)
         {
-            return await _racaRepositorio.Adicionar(ent);
+            return _racaRepositorio.Adicionar(ent);
         }
 
-        public Task<Raca> BuscarPorId(int id)
+        public Raca BuscarPorId(int id)
         {
             throw new NotImplementedException();
         }
@@ -33,12 +33,12 @@ namespace PSF.Servico.Services
             throw new NotImplementedException();
         }
 
-        public Task<bool> Editar(Raca ent)
+        public bool Editar(Raca ent)
         {
             throw new NotImplementedException();
         }
 
-        public Task<List<Raca>> Listar()
+        public List<Raca> Listar()
         {
             throw new NotImplementedException();
         }

@@ -16,14 +16,14 @@ namespace PSF.Dados.Repositorio
         {
 
         }
-        public async Task<Porte> BuscarPorId(int id)
+        public Porte BuscarPorId(int id)
         {
-            return await Db.Portes.Where(a => a.Id == id).AsNoTracking().FirstOrDefaultAsync();
+            return Db.Portes.Where(a => a.Id == id).AsNoTracking().FirstOrDefault();
         }
 
-        public async Task<List<Porte>> Listar()
+        public List<Porte> Listar()
         {
-            return await Db.Portes.AsNoTracking().ToListAsync();
+            return Db.Portes.AsNoTracking().ToList();
         }
     }
 }
