@@ -23,6 +23,8 @@ using PSF.Servico.Services;
                 services.AddScoped<IRacaService, RacaService>();
                 services.AddScoped<IPorteService, PorteService>();
                 services.AddScoped<IUsuarioService, UsuarioService>();
+                services.AddScoped<IMatchRepositorio, MatchRepositorio>();
+                services.AddScoped<IMatchService, MatchService>();
 
 
 

@@ -9,11 +9,9 @@ namespace PSF.Servico.Interface
 {
     public interface IMensagemService
     {
-        public Task<List<Animal>> ListarAnimais();
-        public Task<bool> AdicionarMensagem(Mensagem Men);
+        public bool AdicionarMensagem(Mensagem Men);
 
         //public Task<bool> AdicionarMensagem(string conteudo);
-        public Task ChatPessoas(Mensagem pes);  //Responsavel por linkar quem curtiu e quem foi curtido
 
     }
 }

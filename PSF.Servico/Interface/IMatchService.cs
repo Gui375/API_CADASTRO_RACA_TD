@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace PSF.Servico.Interface
 {
-    public interface ICurtidaService : IDisposable
+    public interface IMatchService
     {
-        bool Interacao(Curtida ent);
-        List<Curtida> Curtidas();
+        public List<Match> Listar();
+        public List<Match> BuscarPorUsuarioId(int userId);
+        public bool Adicionar(Match ent);
     }
 }

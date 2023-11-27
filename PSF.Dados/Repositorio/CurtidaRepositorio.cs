@@ -1,4 +1,5 @@
 ﻿using PSF.Dados.EntityFramework;
+using PSF.Dados.Interface;
 using PSF.Dominio.Entities;
 using System;
 using System.Collections.Generic;
@@ -8,12 +9,16 @@ using System.Threading.Tasks;
 
 namespace PSF.Dados.Repositorio
 {
-    public class CurtidaRepositorio : Repositorio<Curtida>
+    public class CurtidaRepositorio : Repositorio<Curtida>, ICurtidaRepositorio
     {
         public CurtidaRepositorio(Contexto context) : base(context)
         {
 
         }
-        
+
+        public List<Curtida> Curtidas()
+        {
+            return Db.Curtida.ToList();
+        }
     }
 }

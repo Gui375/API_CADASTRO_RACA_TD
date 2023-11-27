@@ -12,7 +12,6 @@ namespace PSF.Servico.Services
     internal class MensagemService : IMensagemService
     {
         private readonly IMensagemService _mensagemService;
-        private  AnimalService _animal;
 
         public MensagemService(IMensagemService mensagemService)
         {
@@ -21,21 +20,13 @@ namespace PSF.Servico.Services
 
        
 
-        public async Task<bool> AdicionarMensagem(Mensagem Men)
+        public bool AdicionarMensagem(Mensagem Men)
         {
-            return await _mensagemService.AdicionarMensagem(Men);
+            return _mensagemService.AdicionarMensagem(Men);
         }
 
+        
 
-
-        public Task ChatPessoas(Mensagem pes)
-        {
-            throw new NotImplementedException(); //Não consegui fazer o link das pessoas
-        }
-
-        public async Task<List<Animal>> ListarAnimais()
-        {
-            return await _animal.Listar();
-        }
+      
     }
 }

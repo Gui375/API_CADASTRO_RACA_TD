@@ -22,6 +22,7 @@ namespace PSF.Dados.EntityFramework
         public DbSet<Animal> Animal { get; set; }
         public DbSet<Curtida> Curtida { get; set; }
         public DbSet<Mensagem> Mensagem { get; set; }
+        public DbSet<Match> Match { get; set; }
 
 
 

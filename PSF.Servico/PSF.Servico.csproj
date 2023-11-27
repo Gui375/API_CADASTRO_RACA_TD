@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PSF.Dados\PSF.Dados.csproj" />
+    <ProjectReference Include="..\PSF.Dominio\PSF.Dominio.csproj" />
   </ItemGroup>
 
 </Project>

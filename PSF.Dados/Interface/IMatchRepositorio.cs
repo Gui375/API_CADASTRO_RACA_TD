@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace PSF.Dados.Interface
 {
-    public interface ICurtidaRepositorio : IRepositorio<Curtida>
+    public interface IMatchRepositorio  : IRepositorio<Match>
     {
-        public List<Curtida> Curtidas();
+        public List<Match> Listar();
+        public List<Match> BuscarPorUsuarioId(int userId);
     }
 }
