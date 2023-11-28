@@ -1,3 +1,4 @@
+using Interno.Api.Configuracoes;
 using Microsoft.EntityFrameworkCore;
 using PSF.Dados.EntityFramework;
 using PSF.Dados.Interface;
@@ -20,14 +21,7 @@ builder.Services.AddDbContext<Contexto>(options => options.UseSqlServer(@"Data s
                                     TrustServerCertificate=True")
 );
 
-builder.Services.AddScoped<IAnimalRepositorio, AnimalRepositorio>();
-builder.Services.AddScoped<IAnimalService, AnimalService>();
-builder.Services.AddScoped<IRacaRepositorio, RacaRepositorio>();
-builder.Services.AddScoped<IRacaService, RacaService>();
-builder.Services.AddScoped<IPorteRepositorio, PorteRepositorio>();
-builder.Services.AddScoped<IPorteService, PorteService>();
-builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
-builder.Services.AddScoped<IUsuarioService, UsuarioService>();
+builder.Services.ResolveDependencies();
 
 builder.Services.AddAuthentication(options =>
 {
