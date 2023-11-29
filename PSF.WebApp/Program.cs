@@ -12,7 +12,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddControllersWithViews();
-builder.Services.AddCors();
+builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
+{
+    builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
+}));
 
 builder.Services.AddDbContext<Contexto>(options => options.UseSqlServer(@"Data source = 201.62.57.93,1434; 
                                     Database = BD044748; 
@@ -41,6 +44,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseCors("corsapp");
 //app.UseHttpsRedirection();
 app.UseStaticFiles();
 
