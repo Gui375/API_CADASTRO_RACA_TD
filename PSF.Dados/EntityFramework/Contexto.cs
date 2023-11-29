@@ -44,6 +44,7 @@ namespace PSF.Dados.EntityFramework
             modelBuilder.ApplyConfiguration(new AnimalConfiguration());
             modelBuilder.ApplyConfiguration(new CurtidaConfiguration());
             modelBuilder.ApplyConfiguration(new MensagemConfiguration());
+            modelBuilder.ApplyConfiguration(new MatchConfiguration());
 
         }
 

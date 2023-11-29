@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PSF.Servico.Interface
 {
-    public interface IMatchService
+    public interface IMatchService : IDisposable
     {
         public List<Match> Listar();
         public List<Match> BuscarPorUsuarioId(int userId);

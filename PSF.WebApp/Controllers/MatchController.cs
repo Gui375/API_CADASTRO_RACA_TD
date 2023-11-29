@@ -14,18 +14,18 @@ namespace PSF.WebApp.Controllers
             _matchService = matchService;
         }
 
-        [HttpGet]
-        public List<Match> Listar()
-        {
-            return _matchService.Listar();
-        } 
+        //[HttpGet]
+        //public List<Match> Listar()
+        //{
+        //    return _matchService.Listar();
+        //} 
 
-        [HttpGet]
-        [Route("BuscarPorUsuarioId")]
-        public List<Match> BuscarPorUsuarioId(int userId)
-        {
-            // configurar para pegar do usuario logado
-            return _matchService.BuscarPorUsuarioId(userId);
-        } 
+        //[HttpGet]
+        //[Route("BuscarPorUsuarioId")]
+        //public List<Match> BuscarPorUsuarioId(int userId)
+        //{
+        //    // configurar para pegar do usuario logado
+        //    return _matchService.BuscarPorUsuarioId(userId);
+        //} 
     }
 }

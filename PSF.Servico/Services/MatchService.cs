@@ -1,4 +1,5 @@
-﻿using PSF.Dominio.Entities;
+﻿using PSF.Dados.Interface;
+using PSF.Dominio.Entities;
 using PSF.Servico.Interface;
 using System;
 using System.Collections.Generic;
@@ -10,24 +11,29 @@ namespace PSF.Servico.Services
 {
     public class MatchService : IMatchService
     {
-        private readonly IMatchService _matchService;
-        public MatchService(IMatchService matchService)
+        private readonly IMatchRepositorio _matchRepositorio;
+        public MatchService(IMatchRepositorio matchRepositorio)
         {
-            _matchService  = matchService;
+            _matchRepositorio = matchRepositorio;
         }
         public bool Adicionar(Match ent)
         {
-            return _matchService.Adicionar(ent);
+            return _matchRepositorio.Adicionar(ent);
         }
 
         public List<Match> BuscarPorUsuarioId(int userId)
         {
-            return _matchService.BuscarPorUsuarioId(userId);
+            return _matchRepositorio.BuscarPorUsuarioId(userId);
+        }
+
+        public void Dispose()
+        {
+            _matchRepositorio.Dispose();    
         }
 
         public List<Match> Listar()
         {
-            return _matchService.Listar();
+            return _matchRepositorio.Listar();
         }
     }
 }

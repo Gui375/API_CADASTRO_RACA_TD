@@ -10,7 +10,9 @@ namespace PSF.Dominio.Entities
     {
         public string Conteudo { get; set; }
         public int MatchId { get; set; }
-        public int UsuarioId { get; set; }
+        public Match Match { get; set; }
+        public int UsuarioId1 { get; set; }
+        public int UsuarioId2 { get; set; }
         public DateTime DataHora { get; set; }
     }
 }

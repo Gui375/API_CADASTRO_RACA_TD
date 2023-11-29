@@ -25,6 +25,8 @@ using PSF.Servico.Services;
                 services.AddScoped<IUsuarioService, UsuarioService>();
                 services.AddScoped<IMatchRepositorio, MatchRepositorio>();
                 services.AddScoped<IMatchService, MatchService>();
+                services.AddScoped<IAuthRepositorio, AuthRepositorio>();
+                services.AddScoped<IAuthService, AuthService>();
 
 
 

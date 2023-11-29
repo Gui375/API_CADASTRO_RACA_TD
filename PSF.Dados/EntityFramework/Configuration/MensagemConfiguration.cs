@@ -29,17 +29,22 @@ namespace PSF.Dados.EntityFramework.Configuration
                 .HasColumnType("varchar(1000)")
                 ;
             builder
-               .Property(x => x.MatchId)
+               .Property(x => x.UsuarioId1)
                .HasColumnName("ID_ENVIADO")
                .HasColumnType("int")
                ;
 
             builder
-               .Property(x => x.UsuarioId)
+               .Property(x => x.UsuarioId2)
                .HasColumnName("ID_RECEBIDO")
                .HasColumnType("int")
                ;
-          
+            builder
+               .Property(x => x.MatchId)
+               .HasColumnName("ID_MATCH")
+               .HasColumnType("int")
+               ;
+
         }
     }
 }

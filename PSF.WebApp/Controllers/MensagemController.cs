@@ -22,21 +22,15 @@ namespace PSF.WebApp.Controllers
         }
 
 
-        [HttpGet]
-        public async Task<ActionResult<List<Mensagem>>> Buscar()
-        {
-            var objeto = await _mensagemService.ListarAnimais();
-
-            return Ok(objeto);
-        }
-
         [HttpPost]
-        public async Task<ActionResult<Mensagem>> AdicionarMensagem(Mensagem men)
+        public ActionResult<Mensagem> AdicionarMensagem(Mensagem men)
         {
             if (men == null || !ModelState.IsValid)
                 return BadRequest(BadRequest());
 
-            var result = await _mensagemService.AdicionarMensagem(men);
+            var result =  _mensagemService.AdicionarMensagem(men);
+
+            if (result == false) return BadRequest();
 
             return Ok(men);
         }
