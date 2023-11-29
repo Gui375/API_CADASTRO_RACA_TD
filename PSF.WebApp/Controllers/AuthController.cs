@@ -16,6 +16,13 @@ namespace PSF.WebApp.Controllers
             _authRepositorio = authRepositorio;
         }
 
+        public class LoginDTO
+        {
+            public string Usuario { get; set; }
+            public string Senha { get; set; }
+        }
+
+
         [HttpPost]
         [Route("Cadastrar")]
         public async Task<ActionResult<Usuario>> Cadastrar(Usuario usuario)
@@ -29,18 +36,18 @@ namespace PSF.WebApp.Controllers
 
         [HttpPost]
         [Route("Login")]
-        public async Task<ActionResult<dynamic>> Login([FromBody] string usuario, string senha)
+        public async Task<ActionResult<dynamic>> Login([FromBody] LoginDTO usuario)
         {
             if (!ModelState.IsValid)
                 return BadRequest("Dados inválidos");
 
-            var user = _authRepositorio.BuscarUsuario(usuario);
+            var user = _authRepositorio.BuscarUsuario(usuario.Usuario);
             if (user == null)
             {
                 return BadRequest("Usuário não encontrado");
             }
 
-            if (!BCrypt.Net.BCrypt.Verify(user.Senha, senha))
+            if (!BCrypt.Net.BCrypt.Verify(user.Senha, usuario.Senha))
             {
                 return BadRequest("Credenciais Inválidas");
             }
