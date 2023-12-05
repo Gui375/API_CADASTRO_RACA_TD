@@ -33,7 +33,7 @@ namespace PSF.Dados.EntityFramework.Configuration
                .HasColumnName("PORTEID")
                .HasColumnType("int")
                ;
-            
+
             builder
                .Property(x => x.RacaId)
                .HasColumnName("RACAID")

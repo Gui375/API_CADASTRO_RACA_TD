@@ -11,11 +11,14 @@ namespace PSF.Dominio.Entities
         public string Nome { get; set; }
         public string Foto { get; set; }
         public int PorteId { get; set; }
-        public Porte Porte { get; set; }
+        
         public int RacaId { get; set; }
-        public Raca Raca { get; set; }
+        
         public DateTime DataNascimento { get; set; }
         public int UsuarioId { get; set; }
+
+        public Raca Raca { get; set; }
+        public Porte Porte { get; set; }
         public Usuario Usuario { get; set; }
         public List<Curtida> Curtida { get; set; }
     }

@@ -38,13 +38,16 @@ namespace PSF.Dados.EntityFramework
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new RacaConfiguration());
-            modelBuilder.ApplyConfiguration(new PorteConfiguration());
-            modelBuilder.ApplyConfiguration(new UsuarioConfiguration());
-            modelBuilder.ApplyConfiguration(new AnimalConfiguration());
-            modelBuilder.ApplyConfiguration(new CurtidaConfiguration());
-            modelBuilder.ApplyConfiguration(new MensagemConfiguration());
-            modelBuilder.ApplyConfiguration(new MatchConfiguration());
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(Contexto).Assembly);
+
+            foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys())) relationship.DeleteBehavior = DeleteBehavior.ClientSetNull;
+            //modelBuilder.ApplyConfiguration(new RacaConfiguration());
+            //modelBuilder.ApplyConfiguration(new PorteConfiguration());
+            //modelBuilder.ApplyConfiguration(new UsuarioConfiguration());
+            //modelBuilder.ApplyConfiguration(new AnimalConfiguration());
+            //modelBuilder.ApplyConfiguration(new CurtidaConfiguration());
+            //modelBuilder.ApplyConfiguration(new MensagemConfiguration());
+            //modelBuilder.ApplyConfiguration(new MatchConfiguration());
 
         }
 

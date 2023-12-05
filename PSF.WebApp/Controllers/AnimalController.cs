@@ -30,8 +30,8 @@ namespace PSF.WebApp.Controllers
         [HttpPost]
         public ActionResult<Animal> Adicionar(Animal ent)
         {
-            if(ent == null || !ModelState.IsValid)
-                return BadRequest(BadRequest());
+            //if(ent == null || !ModelState.IsValid)
+            //    return BadRequest(BadRequest());
 
             var result = _animalService.Adicionar(ent);
 
