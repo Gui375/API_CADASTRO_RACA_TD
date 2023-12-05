@@ -8,8 +8,8 @@ namespace PSF.Dominio.Entities
 {
     public class Match : Entity
     {
-        public int UsuarioId1 { get; set; }
-        public int UsuarioId2 { get; set; }
+        public int Cachorro1 { get; set; }
+        public int Cachorro2 { get; set; }
         public List<Mensagem> Mensagens { get; set; }
     }
 }

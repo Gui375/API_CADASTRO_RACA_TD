@@ -8,7 +8,7 @@ namespace PSF.Dominio.Entities
 {
     public class Porte : Entity
     {
-        public decimal Tamanho { get; set; }
+        public string Tamanho { get; set; }
         public char Sigla { get; set;}
     }
 }

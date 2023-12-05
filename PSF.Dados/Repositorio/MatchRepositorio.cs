@@ -18,7 +18,7 @@ namespace PSF.Dados.Repositorio
 
         public List<Match> BuscarPorUsuarioId(int userId)
         {
-            return Db.Match.AsNoTracking().Where(m => m.UsuarioId1 == userId).ToList();
+            return Db.Match.AsNoTracking().Where(m => m.Cachorro1 == userId).ToList();
         }
 
         public List<Match> Listar()

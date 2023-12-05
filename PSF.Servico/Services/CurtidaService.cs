@@ -32,8 +32,8 @@ namespace PSF.Servico.Services
                         if (curtida.Curtiu == true && ent.Curtiu == true && curtida.DestinoId == ent.AnimalId && curtida.AnimalId == ent.DestinoId)
                         {
                             Match match = new Match();
-                            match.UsuarioId1 = ent.AnimalId;
-                            match.UsuarioId2 = ent.DestinoId;
+                            match.Cachorro1 = ent.AnimalId;
+                            match.Cachorro2 = ent.DestinoId;
                             match.Mensagens = null;
                             _matchRepositorio.Adicionar(match);
                             //retorna true apenas se der match
