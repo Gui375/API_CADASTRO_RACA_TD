@@ -42,7 +42,7 @@ namespace PSF.Dados.EntityFramework.Configuration
             builder
                .Property(x => x.Foto)
                .HasColumnName("FOTO")
-               .HasColumnType("int")
+               .HasColumnType("varchar(255)")
                ;
 
             builder.HasOne(a => a.Porte)

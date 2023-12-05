@@ -29,7 +29,7 @@ namespace PSF.Servico.Services
                     var curtidas = _curtidaRepositorio.Curtidas();
                     foreach (var curtida in curtidas)
                     {
-                        if (curtida.Curtiu == true && curtida.DestinoId == ent.AnimalId && curtida.AnimalId == ent.DestinoId)
+                        if (curtida.Curtiu == true && ent.Curtiu == true && curtida.DestinoId == ent.AnimalId && curtida.AnimalId == ent.DestinoId)
                         {
                             Match match = new Match();
                             match.UsuarioId1 = ent.AnimalId;
