@@ -17,6 +17,20 @@ namespace PSF.WebApp.Controllers
             _porteService = porteService;
         }
 
+        [HttpGet]
+        public Porte Buscar(int id)
+        {
+            return _porteService.BuscarPorId(id);
+        }
+        
+        [HttpPost]
+        [Route("AdicionarPorte")]
+        public ActionResult<bool> Adicionar(Porte ent)
+        {
+            var result = _porteService.Adicionar(ent);
+            return Ok(result);
+        }
+
         public IActionResult Index()
         {
             var resultado = _porteService.Listar();

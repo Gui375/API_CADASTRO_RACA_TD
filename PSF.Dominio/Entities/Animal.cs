@@ -16,7 +16,6 @@ namespace PSF.Dominio.Entities
         
         public DateTime DataNascimento { get; set; }
         public int UsuarioId { get; set; }
-
         public Raca Raca { get; set; }
         public Porte Porte { get; set; }
         public Usuario Usuario { get; set; }

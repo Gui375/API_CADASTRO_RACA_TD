@@ -9,5 +9,6 @@ namespace PSF.Dados.Interface
 {
     public interface IRacaRepositorio : IRepositorio<Raca>
     {
+        public Raca BuscarPorId(int id);
     }
 }

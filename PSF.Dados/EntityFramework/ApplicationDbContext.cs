@@ -27,20 +27,41 @@ namespace PSF.Dados.EntityFramework
 
 
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(@"Data source = 201.62.57.93,1434; 
-                                    Database = BD047106; 
-                                    User ID = RA047106; 
-                                    Password = 047106;
-                                    TrustServerCertificate=True");
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer(@"Data source = 201.62.57.93,1434; 
+        //                            Database = BD047106; 
+        //                            User ID = RA047106; 
+        //                            Password = 047106;
+        //                            TrustServerCertificate=True");
+        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
 
-            foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys())) relationship.DeleteBehavior = DeleteBehavior.ClientSetNull;
+            modelBuilder.Entity<Animal>()
+             .HasOne(s => s.Raca)
+             .WithMany()
+             .HasForeignKey(s => s.RacaId);
+
+            modelBuilder.Entity<Animal>()
+                .HasOne(s => s.Porte)
+                .WithMany()
+                .HasForeignKey(s => s.PorteId);
+
+            modelBuilder.Entity<Animal>()
+                .HasOne(s => s.Usuario)
+                .WithMany()
+                .HasForeignKey(s => s.UsuarioId);
+
+            modelBuilder.Entity<Animal>()
+                .HasMany(s => s.Curtida)
+                .WithOne()
+                .HasForeignKey(c => c.Id);
+
+            //modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
+
+            //foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys())) relationship.DeleteBehavior = DeleteBehavior.ClientSetNull;
             //modelBuilder.ApplyConfiguration(new RacaConfiguration());
             //modelBuilder.ApplyConfiguration(new PorteConfiguration());
             //modelBuilder.ApplyConfiguration(new UsuarioConfiguration());
@@ -48,6 +69,7 @@ namespace PSF.Dados.EntityFramework
             //modelBuilder.ApplyConfiguration(new CurtidaConfiguration());
             //modelBuilder.ApplyConfiguration(new MensagemConfiguration());
             //modelBuilder.ApplyConfiguration(new MatchConfiguration());
+            base.OnModelCreating(modelBuilder);
 
         }
 

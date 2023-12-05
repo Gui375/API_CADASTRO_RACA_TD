@@ -1,4 +1,5 @@
-﻿using PSF.Dominio.Entities;
+﻿using PSF.Dados.Interface;
+using PSF.Dominio.Entities;
 using PSF.Servico.Interface;
 using System;
 using System.Collections.Generic;
@@ -10,19 +11,24 @@ namespace PSF.Servico.Services
 {
     public class PorteService : IPorteService
     {
+        private readonly IPorteRepositorio _porteRepositorio;
+        public PorteService(IPorteRepositorio porteRepositorio)
+        {
+            _porteRepositorio = porteRepositorio;
+        }
         public bool Adicionar(Porte ent)
         {
-            throw new NotImplementedException();
+            return _porteRepositorio.Adicionar(ent);
         }
 
         public Porte BuscarPorId(int id)
         {
-            throw new NotImplementedException();
+            return _porteRepositorio.BuscarPorId(id);
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            _porteRepositorio.Dispose();
         }
 
         public bool Editar(Porte ent)
