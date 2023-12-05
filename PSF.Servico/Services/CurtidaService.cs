@@ -22,25 +22,29 @@ namespace PSF.Servico.Services
         public bool Interacao(Curtida ent)
         {
             var interagir = _curtidaRepositorio.Adicionar(ent);
+            if(interagir == true )
+            {
+                if (ent.Curtiu == true)
+                {
+                    var curtidas = _curtidaRepositorio.Curtidas();
+                    foreach (var curtida in curtidas)
+                    {
+                        if (curtida.Curtiu == true && curtida.DestinoId == ent.AnimalId && curtida.AnimalId == ent.DestinoId)
+                        {
+                            Match match = new Match();
+                            match.UsuarioId1 = ent.AnimalId;
+                            match.UsuarioId2 = ent.DestinoId;
+                            match.Mensagens = null;
+                            _matchRepositorio.Adicionar(match);
+                            //retorna true apenas se der match
+                            return true;
+                        }
+                    }
+                }
 
-            //if(ent.Curtiu == true)
-            //{
-            //    var curtidas = _curtidaRepositorio.Curtidas();
-            //    foreach(var curtida in curtidas)
-            //    {
-            //        if(curtida.Curtiu == true && curtida.DestinoId == ent.AnimalId && curtida.AnimalId == ent.DestinoId)
-            //        {
-            //            Match match = new Match();
-            //            match.UsuarioId1 = ent.AnimalId;
-            //            match.UsuarioId2 = ent.DestinoId;
-            //            match.Mensagens = null;
-            //            _matchRepositorio.Adicionar(match);
-            //            // adicionar retorno de confirmaçao do match
-            //        }
-            //    }
-            //}
-            
-            return interagir;
+                return false;
+            }
+            return false;
         }
         public void Dispose()
         {
@@ -49,7 +53,7 @@ namespace PSF.Servico.Services
 
         public List<Curtida> Curtidas()
         {
-            throw new NotImplementedException();
+            return _curtidaRepositorio.Curtidas();
         }
     }
 }

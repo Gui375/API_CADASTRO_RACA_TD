@@ -65,6 +65,11 @@ namespace PSF.WebApp.Controllers
                 return BadRequest(BadRequest());
 
             var result = _curtidaService.Interacao(curtida);
+
+            if(result == true)
+            {
+                return Created("Criado",result);
+            }
             return Ok(result);
         }
 
