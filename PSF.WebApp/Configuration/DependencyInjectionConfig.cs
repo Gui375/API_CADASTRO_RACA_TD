@@ -12,7 +12,7 @@ using PSF.Servico.Services;
         {
             public static IServiceCollection ResolveDependencies(this IServiceCollection services)
             {
-                services.AddScoped<Contexto>();
+                services.AddScoped<ApplicationDbContext>();
 
 
                 services.AddScoped<IAnimalRepositorio, AnimalRepositorio>();

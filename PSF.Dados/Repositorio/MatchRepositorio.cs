@@ -12,7 +12,7 @@ namespace PSF.Dados.Repositorio
 {
     public class MatchRepositorio : Repositorio<Match>, IMatchRepositorio
     {
-        public MatchRepositorio(Contexto context) : base(context)
+        public MatchRepositorio(ApplicationDbContext context) : base(context)
         {
         }
 

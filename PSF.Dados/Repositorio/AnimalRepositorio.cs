@@ -12,7 +12,7 @@ namespace PSF.Dados.Repositorio
 {
     public class AnimalRepositorio : Repositorio<Animal>, IAnimalRepositorio
     {
-        public AnimalRepositorio(Contexto context) : base(context)
+        public AnimalRepositorio(ApplicationDbContext context) : base(context)
         {
 
         }

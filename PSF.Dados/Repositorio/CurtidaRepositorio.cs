@@ -11,7 +11,7 @@ namespace PSF.Dados.Repositorio
 {
     public class CurtidaRepositorio : Repositorio<Curtida>, ICurtidaRepositorio
     {
-        public CurtidaRepositorio(Contexto context) : base(context)
+        public CurtidaRepositorio(ApplicationDbContext context) : base(context)
         {
 
         }

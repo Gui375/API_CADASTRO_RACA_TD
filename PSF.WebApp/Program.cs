@@ -17,7 +17,7 @@ builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
     builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
 }));
 
-builder.Services.AddDbContext<Contexto>(options => options.UseSqlServer(@"Data source = 201.62.57.93,1434; 
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(@"Data source = 201.62.57.93,1434; 
                                     Database = BD044748; 
                                     User ID = RA044748; 
                                     Password = 044748;

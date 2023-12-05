@@ -11,8 +11,8 @@ namespace PSF.Dados.Repositorio
 {
     public class AuthRepositorio : IAuthRepositorio
     {
-        private readonly Contexto _applicationDbContext;
-        public AuthRepositorio(Contexto applicationDbContext)
+        private readonly ApplicationDbContext _applicationDbContext;
+        public AuthRepositorio(ApplicationDbContext applicationDbContext)
         {
             _applicationDbContext = applicationDbContext;
         }

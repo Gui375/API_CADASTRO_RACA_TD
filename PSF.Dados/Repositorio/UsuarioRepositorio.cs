@@ -12,7 +12,7 @@ namespace PSF.Dados.Repositorio
 {
     public class UsuarioRepositorio : Repositorio<Usuario>, IUsuarioRepositorio
     {
-        public UsuarioRepositorio(Contexto context) : base(context)
+        public UsuarioRepositorio(ApplicationDbContext context) : base(context)
         {
 
         }

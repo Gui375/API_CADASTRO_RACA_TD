@@ -10,9 +10,9 @@ using PSF.Dados.EntityFramework.Configuration;
 
 namespace PSF.Dados.EntityFramework
 {
-    public class Contexto : DbContext
+    public class ApplicationDbContext : DbContext
     {
-        public Contexto(DbContextOptions<Contexto> options) : base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
 
         }
@@ -30,15 +30,15 @@ namespace PSF.Dados.EntityFramework
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Data source = 201.62.57.93,1434; 
-                                    Database = BD044748; 
-                                    User ID = RA044748; 
-                                    Password = 044748;
+                                    Database = BD047106; 
+                                    User ID = RA047106; 
+                                    Password = 047106;
                                     TrustServerCertificate=True");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(Contexto).Assembly);
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
 
             foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys())) relationship.DeleteBehavior = DeleteBehavior.ClientSetNull;
             //modelBuilder.ApplyConfiguration(new RacaConfiguration());

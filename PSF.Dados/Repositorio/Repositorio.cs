@@ -14,11 +14,11 @@ namespace PSF.Dados.Repositorio
     public abstract class Repositorio<TEntity> : IRepositorio<TEntity> where TEntity : Entity, new()
     {
 
-        protected readonly Contexto Db;
+        protected readonly ApplicationDbContext Db;
         protected readonly DbSet<TEntity> DbSet;
 
 
-        protected Repositorio(Contexto db)
+        protected Repositorio(ApplicationDbContext db)
         {
             Db = db;
             DbSet = db.Set<TEntity>();

@@ -12,7 +12,7 @@ namespace PSF.Dados.Repositorio
 {
     public class RacaRepositorio : Repositorio<Raca>, IRacaRepositorio
     {
-        public RacaRepositorio(Contexto context) : base(context)
+        public RacaRepositorio(ApplicationDbContext context) : base(context)
         {
 
         }

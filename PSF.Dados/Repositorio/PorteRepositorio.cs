@@ -12,7 +12,7 @@ namespace PSF.Dados.Repositorio
 {
     public class PorteRepositorio : Repositorio<Porte>, IPorteRepositorio
     {
-        public PorteRepositorio(Contexto context) : base(context)
+        public PorteRepositorio(ApplicationDbContext context) : base(context)
         {
 
         }

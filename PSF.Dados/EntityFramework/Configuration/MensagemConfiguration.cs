@@ -13,7 +13,7 @@ namespace PSF.Dados.EntityFramework.Configuration
     {
         public void Configure(EntityTypeBuilder<Mensagem> builder)
         {
-            builder.ToTable("MENSAGENS_MATCH");
+            builder.ToTable("MENSAGEM");
             builder.HasKey(x => x.Id);
 
             builder
