@@ -30,7 +30,7 @@ namespace PSF.Servico.Services
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            _racaRepositorio.Dispose();
         }
 
         public bool Editar(Raca ent)

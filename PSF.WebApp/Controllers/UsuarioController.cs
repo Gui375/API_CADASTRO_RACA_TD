@@ -35,8 +35,14 @@ namespace PSF.WebApp.Controllers
                 return RedirectToAction("Index");
             }
 
-          
+            [HttpPost]
+            [Route("Cadastrar")]
+            public ActionResult<Usuario> Adicionar(Usuario ent)
+            {
+                _usuarioService.Adicionar(ent);
+                return Ok(ent);
+            }
 
-        
+
     }
 }

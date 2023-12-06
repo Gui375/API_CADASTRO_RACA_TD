@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using PSF.Dados.EntityFramework;
 using PSF.Dominio.Entities;
 using PSF.Servico.Interface;
+using PSF.Servico.Services;
 
 namespace PSF.WebApp.Controllers
 {
@@ -34,6 +35,14 @@ namespace PSF.WebApp.Controllers
         {
             _racaService.Adicionar(ent);
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        [Route("Adicionar")]
+        public ActionResult<bool> Adicionar(Raca ent)
+        {
+            var result = _racaService.Adicionar(ent);
+            return Ok(result);
         }
 
         //public IActionResult Excluir(int id)
