@@ -64,6 +64,14 @@ namespace PSF.Dados.EntityFramework
                 .WithOne()
                 .HasForeignKey(c => c.Id);
 
+            base.OnModelCreating(modelBuilder);
+
+        }
+
+
+    }
+}
+
             //modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
 
             //foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys())) relationship.DeleteBehavior = DeleteBehavior.ClientSetNull;
@@ -74,10 +82,3 @@ namespace PSF.Dados.EntityFramework
             //modelBuilder.ApplyConfiguration(new CurtidaConfiguration());
             //modelBuilder.ApplyConfiguration(new MensagemConfiguration());
             //modelBuilder.ApplyConfiguration(new MatchConfiguration());
-            base.OnModelCreating(modelBuilder);
-
-        }
-
-
-    }
-}

@@ -19,29 +19,29 @@ namespace PSF.Dados.EntityFramework.Configuration
             builder
                 .Property(f => f.Id)
                 .UseIdentityColumn()
-                .HasColumnName("ID_MENS")
+                .HasColumnName("ID")
                 .HasColumnType("int")
                 ;
 
             builder
                 .Property(x => x.Conteudo)
-                .HasColumnName("MENSAGEM")
+                .HasColumnName("CONTEUDO")
                 .HasColumnType("varchar(1000)")
                 ;
             builder
-               .Property(x => x.UsuarioId1)
-               .HasColumnName("ID_ENVIADO")
+               .Property(x => x.Cachorro1)
+               .HasColumnName("CACHORRO1")
                .HasColumnType("int")
                ;
 
             builder
-               .Property(x => x.UsuarioId2)
-               .HasColumnName("ID_RECEBIDO")
+               .Property(x => x.Cachorro2)
+               .HasColumnName("CACHORRO2")
                .HasColumnType("int")
                ;
             builder
                .Property(x => x.MatchId)
-               .HasColumnName("ID_MATCH")
+               .HasColumnName("MATCHID")
                .HasColumnType("int")
                ;
 

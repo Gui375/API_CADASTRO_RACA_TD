@@ -92,7 +92,7 @@ namespace PSF.Dados.Migrations
                         principalTable: "Usuario",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    
+                   
                 });
 
             migrationBuilder.CreateTable(
@@ -145,6 +145,8 @@ namespace PSF.Dados.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Conteudo = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MatchId = table.Column<int>(type: "int", nullable: false),
+                    Cachorro1 = table.Column<int>(type: "int", nullable: false),
+                    Cachorro2 = table.Column<int>(type: "int", nullable: false),
                     DataHora = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Ativo = table.Column<bool>(type: "bit", nullable: false)
                 },
@@ -174,7 +176,6 @@ namespace PSF.Dados.Migrations
                 table: "Animal",
                 column: "UsuarioId");
 
-           
             migrationBuilder.CreateIndex(
                 name: "IX_Match_UsuarioId",
                 table: "Match",

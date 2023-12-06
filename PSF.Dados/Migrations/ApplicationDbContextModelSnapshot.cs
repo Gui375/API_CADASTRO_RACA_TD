@@ -53,9 +53,6 @@ namespace PSF.Dados.Migrations
                     b.Property<int>("UsuarioId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("UsuarioId1")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("PorteId");
@@ -63,8 +60,6 @@ namespace PSF.Dados.Migrations
                     b.HasIndex("RacaId");
 
                     b.HasIndex("UsuarioId");
-
-                    b.HasIndex("UsuarioId1");
 
                     b.ToTable("Animal");
                 });
@@ -129,6 +124,12 @@ namespace PSF.Dados.Migrations
                     b.Property<bool>("Ativo")
                         .HasColumnType("bit");
 
+                    b.Property<int>("Cachorro1")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Cachorro2")
+                        .HasColumnType("int");
+
                     b.Property<string>("Conteudo")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -137,12 +138,6 @@ namespace PSF.Dados.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<int>("MatchId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UsuarioId1")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UsuarioId2")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -248,10 +243,6 @@ namespace PSF.Dados.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("PSF.Dominio.Entities.Usuario", null)
-                        .WithMany("Animais")
-                        .HasForeignKey("UsuarioId1");
-
                     b.Navigation("Porte");
 
                     b.Navigation("Raca");
@@ -306,3 +297,4 @@ namespace PSF.Dados.Migrations
         }
     }
 }
+

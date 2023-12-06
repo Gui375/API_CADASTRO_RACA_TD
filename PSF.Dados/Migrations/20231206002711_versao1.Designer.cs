@@ -12,8 +12,8 @@ using PSF.Dados.EntityFramework;
 namespace PSF.Dados.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231205231311_versao2")]
-    partial class versao2
+    [Migration("20231206002711_versao1")]
+    partial class versao1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -132,6 +132,12 @@ namespace PSF.Dados.Migrations
                     b.Property<bool>("Ativo")
                         .HasColumnType("bit");
 
+                    b.Property<int>("Cachorro1")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Cachorro2")
+                        .HasColumnType("int");
+
                     b.Property<string>("Conteudo")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -140,12 +146,6 @@ namespace PSF.Dados.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<int>("MatchId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UsuarioId1")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UsuarioId2")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
