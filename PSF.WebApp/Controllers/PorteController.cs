@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using PSF.Dados.EntityFramework;
 using PSF.Dominio.Entities;
 using PSF.Servico.Interface;
+using PSF.Servico.Services;
 
 namespace PSF.WebApp.Controllers
 {
@@ -28,6 +29,13 @@ namespace PSF.WebApp.Controllers
         public ActionResult<bool> Adicionar(Porte ent)
         {
             var result = _porteService.Adicionar(ent);
+            return Ok(result);
+        }
+        [HttpGet]
+        [Route("Listar")]
+        public ActionResult<List<Porte>> Listar()
+        {
+            var result = _porteService.Listar();
             return Ok(result);
         }
 

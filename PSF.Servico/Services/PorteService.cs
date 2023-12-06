@@ -38,7 +38,7 @@ namespace PSF.Servico.Services
 
         public List<Porte> Listar()
         {
-            throw new NotImplementedException();
+            return _porteRepositorio.Listar();
         }
     }
 }

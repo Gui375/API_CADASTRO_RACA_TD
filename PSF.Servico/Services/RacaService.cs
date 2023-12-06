@@ -40,7 +40,7 @@ namespace PSF.Servico.Services
 
         public List<Raca> Listar()
         {
-            throw new NotImplementedException();
+            return _racaRepositorio.Listar();
         }
     }
 }

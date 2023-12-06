@@ -1,8 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.Scripting;
+using Microsoft.Extensions.Options;
 using PSF.Dados.Interface;
 using PSF.Dominio.Entities;
 using PSF.WebApp.Helpers;
+using System;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 
 namespace PSF.WebApp.Controllers
 {
@@ -54,6 +58,7 @@ namespace PSF.WebApp.Controllers
             if (user.Senha != usuario.Senha) return BadRequest("Credenciais Inválidas");
             string token = TokenService.GenerateToken(user);
             user.Token = token;
+
             return Ok(user);
         }
 

@@ -19,7 +19,7 @@ namespace PSF.Dados.Repositorio
 
         public Animal BuscarPorId(int id)
         {
-            return  Db.Animal.Where(a => a.Id == id).FirstOrDefault();
+            return Db.Animal.AsNoTracking().Include(a => a.Raca).Include(a => a.Porte).Where(a => a.Id == id).FirstOrDefault();
         }
 
         public  List<Animal> Listar()

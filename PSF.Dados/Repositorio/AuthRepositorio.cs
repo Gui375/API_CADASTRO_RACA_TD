@@ -20,7 +20,7 @@ namespace PSF.Dados.Repositorio
 
         public Usuario BuscarUsuario(string usuario)
         {
-            return _applicationDbContext.Usuario.AsNoTracking().Include(p => p.Animais).Include(p => p.Matchs).Where(u => u.Nome == usuario).FirstOrDefault();
+            return _applicationDbContext.Usuario.AsNoTracking().Where(u => u.Nome == usuario).FirstOrDefault();
         }
 
         public async Task<Usuario> Cadastrar(Usuario usuario)

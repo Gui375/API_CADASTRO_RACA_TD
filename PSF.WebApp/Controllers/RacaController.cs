@@ -45,6 +45,14 @@ namespace PSF.WebApp.Controllers
             return Ok(result);
         }
 
+        [HttpGet]
+        [Route("Listar")]
+        public ActionResult<List<Raca>> Listar()
+        {
+            var result = _racaService.Listar();
+            return Ok(result);
+        }
+
         //public IActionResult Excluir(int id)
         //{
         //    var objeto = _racaService.BuscarPorId(id);
