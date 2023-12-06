@@ -29,7 +29,7 @@ namespace PSF.WebApp.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest("Dados inválidos");
-            usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
+            //usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
             var result = await _authRepositorio.Cadastrar(usuario);
             return Ok(result);
         }
@@ -47,11 +47,11 @@ namespace PSF.WebApp.Controllers
                 return BadRequest("Usuário não encontrado");
             }
 
-            if (!BCrypt.Net.BCrypt.Verify(user.Senha, usuario.Senha))
-            {
-                return BadRequest("Credenciais Inválidas");
-            }
-
+            //if (!BCrypt.Net.BCrypt.Verify(user.Senha, usuario.Senha))
+            //{
+            //    return BadRequest("Credenciais Inválidas");
+            //}
+            if (user.Senha != usuario.Senha) return BadRequest("Credenciais Inválidas");
             string token = TokenService.GenerateToken(user);
 
             return Ok(token);
