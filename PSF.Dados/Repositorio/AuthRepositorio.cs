@@ -1,4 +1,5 @@
-﻿using PSF.Dados.EntityFramework;
+﻿using Microsoft.EntityFrameworkCore;
+using PSF.Dados.EntityFramework;
 using PSF.Dados.Interface;
 using PSF.Dominio.Entities;
 using System;
@@ -19,7 +20,7 @@ namespace PSF.Dados.Repositorio
 
         public Usuario BuscarUsuario(string usuario)
         {
-            return _applicationDbContext.Usuario.Where(u => u.Nome == usuario).FirstOrDefault();
+            return _applicationDbContext.Usuario.AsNoTracking().Include(p => p.Animais).Include(p => p.Matchs).Where(u => u.Nome == usuario).FirstOrDefault();
         }
 
         public async Task<Usuario> Cadastrar(Usuario usuario)
