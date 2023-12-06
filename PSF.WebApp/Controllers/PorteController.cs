@@ -37,6 +37,7 @@ namespace PSF.WebApp.Controllers
             return View(resultado);
         }
 
+        [Route("Inserir")]
         public IActionResult Inserir()
         {
             var ent = new Porte();

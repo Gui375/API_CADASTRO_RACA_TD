@@ -20,6 +20,7 @@ namespace PSF.WebApp.Controllers
                 var resultado = _usuarioService.Listar();
                 return View(resultado);
             }
+            [Route("Inserir")]
 
             public IActionResult Inserir()
             {
