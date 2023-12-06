@@ -1,4 +1,5 @@
 ﻿using PSF.Dados.Interface;
+using PSF.Dominio;
 using PSF.Dominio.Entities;
 using PSF.Servico.Interface;
 using System;

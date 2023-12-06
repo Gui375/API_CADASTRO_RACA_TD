@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using PSF.Dominio;
 using PSF.Dominio.Entities;
 using System;
 using System.Collections.Generic;

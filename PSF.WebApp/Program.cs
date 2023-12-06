@@ -18,9 +18,9 @@ builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
 }));
 
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(@"Data source = 201.62.57.93,1434; 
-                                    Database = BD047106; 
-                                    User ID = RA047106; 
-                                    Password = 047106;
+                                    Database = BD044748; 
+                                    User ID = RA044748; 
+                                    Password = 044748;
                                     TrustServerCertificate=True")
 );
 

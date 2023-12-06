@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PSF.Dados.EntityFramework;
 using PSF.Dados.Interface;
+using PSF.Dominio;
 using PSF.Dominio.Entities;
 using System;
 using System.Collections.Generic;

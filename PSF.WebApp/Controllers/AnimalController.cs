@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PSF.Dados.EntityFramework;
+using PSF.Dominio;
 using PSF.Dominio.Entities;
 using PSF.Servico.Interface;
 

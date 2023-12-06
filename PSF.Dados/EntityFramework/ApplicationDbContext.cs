@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using PSF.Dominio.Entities;
 using PSF.Dados.EntityFramework.Configuration;
+using PSF.Dominio;
 
 namespace PSF.Dados.EntityFramework
 {
@@ -35,9 +36,9 @@ namespace PSF.Dados.EntityFramework
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Data source = 201.62.57.93,1434; 
-                                    Database = BD047106; 
-                                    User ID = RA047106; 
-                                    Password = 047106;
+                                    Database = BD044748; 
+                                    User ID = RA044748; 
+                                    Password = 044748;
                                     TrustServerCertificate=True");
         }
 
@@ -71,14 +72,3 @@ namespace PSF.Dados.EntityFramework
 
     }
 }
-
-            //modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
-
-            //foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys())) relationship.DeleteBehavior = DeleteBehavior.ClientSetNull;
-            //modelBuilder.ApplyConfiguration(new RacaConfiguration());
-            //modelBuilder.ApplyConfiguration(new PorteConfiguration());
-            //modelBuilder.ApplyConfiguration(new UsuarioConfiguration());
-            //modelBuilder.ApplyConfiguration(new AnimalConfiguration());
-            //modelBuilder.ApplyConfiguration(new CurtidaConfiguration());
-            //modelBuilder.ApplyConfiguration(new MensagemConfiguration());
-            //modelBuilder.ApplyConfiguration(new MatchConfiguration());

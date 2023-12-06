@@ -1,4 +1,5 @@
-﻿using PSF.Dominio.Entities;
+﻿using PSF.Dominio;
+using PSF.Dominio.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
