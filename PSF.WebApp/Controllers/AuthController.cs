@@ -53,8 +53,8 @@ namespace PSF.WebApp.Controllers
             //}
             if (user.Senha != usuario.Senha) return BadRequest("Credenciais Inválidas");
             string token = TokenService.GenerateToken(user);
-
-            return Ok(token);
+            user.Token = token;
+            return Ok(user);
         }
 
     }

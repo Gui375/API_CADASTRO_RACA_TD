@@ -7,7 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 using PSF.Dominio.Entities;
 using PSF.Dados.EntityFramework.Configuration;
-using PSF.Dominio;
 
 namespace PSF.Dados.EntityFramework
 {
@@ -64,6 +63,11 @@ namespace PSF.Dados.EntityFramework
                 .HasMany(s => s.Curtida)
                 .WithOne()
                 .HasForeignKey(c => c.Id);
+
+            modelBuilder.Entity<Usuario>()
+                .HasMany(u => u.Animais)
+                .WithOne(a => a.Usuario)
+                .HasForeignKey(a => a.UsuarioId);
 
             base.OnModelCreating(modelBuilder);
 

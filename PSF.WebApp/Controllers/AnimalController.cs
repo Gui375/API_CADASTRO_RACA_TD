@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PSF.Dados.EntityFramework;
-using PSF.Dominio;
 using PSF.Dominio.Entities;
 using PSF.Servico.Interface;
 
@@ -32,7 +31,7 @@ namespace PSF.WebApp.Controllers
         public ActionResult<Animal> Adicionar(Animal ent)
         {
             var result = _animalService.Adicionar(ent);
-
+            if (result == false) return BadRequest();
             return Ok(ent);
         }
         

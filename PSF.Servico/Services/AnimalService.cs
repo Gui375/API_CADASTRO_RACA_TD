@@ -1,5 +1,4 @@
 ﻿using PSF.Dados.Interface;
-using PSF.Dominio;
 using PSF.Dominio.Entities;
 using PSF.Servico.Interface;
 using System;
@@ -27,17 +26,17 @@ namespace PSF.Servico.Services
 
         public bool Adicionar(Animal ent)
         {
-            var raca = _racaRepositorio.BuscarPorId(ent.RacaId);
-            if (raca == null) ent.Raca = null;
-            ent.Raca = raca;
+            //var raca = _racaRepositorio.BuscarPorId(ent.RacaId);
+            //if (raca == null) ent.Raca = null;
+            //ent.Raca = raca;
             
-            var porte = _porteRepositorio.BuscarPorId(ent.PorteId);
-            if (porte == null) ent.Porte = null;
-            ent.Porte = porte;
+            //var porte = _porteRepositorio.BuscarPorId(ent.PorteId);
+            //if (porte == null) ent.Porte = null;
+            //ent.Porte = porte;
 
-            var usuario = _usuarioRepositorio.BuscarPorId(ent.UsuarioId);
-            if (usuario == null) ent.Usuario = null;
-            ent.Usuario = usuario;
+            //var usuario = _usuarioRepositorio.BuscarPorId(ent.UsuarioId);
+            //if (usuario == null) ent.Usuario = null;
+            //ent.Usuario = usuario;
 
             return _animalRepositorio.Adicionar(ent);
         }
